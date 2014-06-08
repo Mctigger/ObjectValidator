@@ -1,0 +1,18 @@
+{
+	"username": {
+        "type": "scalar",
+		"constraints": [
+            ["string", {"length": 10}]
+        ]
+    },
+    "age": {
+        "type": "scalar",
+        "constraints": [
+            ["string", {"length": 10}]
+        ]
+    },
+	"address": {
+        "type": "object",
+        "ref": "address"
+    }
+}

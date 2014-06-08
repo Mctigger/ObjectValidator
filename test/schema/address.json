@@ -1,0 +1,20 @@
+{
+	"addressee": {
+		"type": "scalar",
+		"constraints": [
+			["dummy"]
+		]
+	},
+	"street": {
+		"type": "scalar",
+		"constraints": [
+			["string"]
+		]
+	},
+	"housenumber": {
+		"type": "scalar",
+		"constraints": [
+			["string"]
+		]
+	}
+}

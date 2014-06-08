@@ -1,0 +1,16 @@
+{
+	"username": {
+        "type": "scalar",
+		"constraints": [
+            ["constraintName", {"length": 10}]
+        ]
+    },
+	"address": {
+        "type": "object",
+        "ref": "refSchemaName"
+    },
+	"arrayOfSomething": {
+        "type": "array",
+        "ref": "elementSchema"
+    }
+}

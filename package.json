@@ -1,0 +1,25 @@
+{
+  "name": "ObjectValidator",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/objectvalidator.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "author": "Tim Joseph",
+  "license": "GPLv3",
+  "devDependencies": {
+    "mocha": "~1.20.0",
+    "chai": "~1.9.1",
+    "sinon": "~1.10.2",
+    "rootpath": "~0.1.2"
+  },
+  "dependencies": {
+    "underscore": "~1.6.0",
+    "lodash": "~2.4.1"
+  }
+}
