@@ -110,7 +110,7 @@ describe('ObjectValidator', function() {
 
         it('with no info for a schema key', function() {
             var validator = new ObjectValidator();
-            validator.addConstraint('string', constraints.string);
+            validator.addConstraint('string', this.constraints.string);
 
             this.schemas.user.age = {}; // Invalid schema
 
@@ -122,16 +122,14 @@ describe('ObjectValidator', function() {
             var identifier = 'user';
             var key = 'age';
             validator.addSchema(identifier, this.schemas.user);
-            expect(_.bind(validator.validateObject, validator, user, identifier)).to.throw('Schema contains an invalid type for key ' + key);
+            expect(_.bind(validator.validateObject, validator, user, identifier)).to.throw('A schema contains the invalid type "undefined"');
         });
 
         it('with a schema containing no type for a key', function() {
             var validator = new ObjectValidator();
-            validator.addConstraint('string', constraints.string);
+            validator.addConstraint('string', this.constraints.string);
 
-            this.schemas.user.age.type = {
-
-            }; // Invalid schema, no type provided
+            this.schemas.user.age.type = {}; // Invalid schema, no type provided
 
             var user = {
                 "name": "Tim Joseph",
@@ -141,7 +139,7 @@ describe('ObjectValidator', function() {
             var identifier = 'user';
             var key = 'age';
             validator.addSchema(identifier, this.schemas.user);
-            expect(_.bind(validator.validateObject, validator, user, identifier)).to.throw('Schema contains an invalid type for key ' + key);
+            expect(_.bind(validator.validateObject, validator, user, identifier)).to.throw('A schema contains the invalid type "' + {} + '"');
         });
 
         it('with a valid object and a schema identifier', function() {
