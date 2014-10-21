@@ -9,10 +9,10 @@ var constraints = {
     "dummy": require('test/constraint/dummy')
 };
 
-var ObjectValidator = require('lib/ObjectValidator');
+var ObjectValidator = require('src/ObjectValidator');
 
 describe('ObjectValidator', function() {
-    describe('#addConstraint', function() {
+    describe('.addConstraint', function() {
         it('should add a constraint', function() {
             var validator = new ObjectValidator();
 
@@ -33,7 +33,7 @@ describe('ObjectValidator', function() {
         });
     });
 
-    describe('#addSchema', function() {
+    describe('.addSchema', function() {
         var schemas = {
             "user": require('test/schema/user.json'),
             "address": require('test/schema/address.json')
@@ -54,13 +54,13 @@ describe('ObjectValidator', function() {
             validator.addSchema('user', schemas.user);
 
             expect(_.bind(validator.addSchema, validator, 'user', schemas.user)).to.throw('Schema user has already been added.');
-        }); 
+        });
 
     });
 
-    
 
-    describe('#getSchemaOrThrowError', function() {
+
+    describe('.getSchemaOrThrowError', function() {
 
         var schemas = {
             "user": require('test/schema/user.json'),
@@ -76,11 +76,11 @@ describe('ObjectValidator', function() {
         it('with invalid identifier', function() {
             var validator = new ObjectValidator();
             var identifier = 'hasNotBeenAddedYet';
-            expect(_.bind(validator.getSchemaOrThrowError, validator, identifier)).to.throw('Schema ' + identifier + ' does not exist.'); 
+            expect(_.bind(validator.getSchemaOrThrowError, validator, identifier)).to.throw('Schema ' + identifier + ' does not exist.');
         });
     });
 
-    describe('#getConstraintOrThrowError', function() {
+    describe('.getConstraintOrThrowError', function() {
         it('with valid identifier', function() {
             var validator = new ObjectValidator();
             validator.addConstraint('string', constraints.string);
@@ -90,14 +90,14 @@ describe('ObjectValidator', function() {
         it('with invalid identifier', function() {
             var validator = new ObjectValidator();
             var identifier = 'hasNotBeenAddedYet';
-            expect(_.bind(validator.getConstraintOrThrowError, validator, identifier)).to.throw('Constraint ' + identifier + ' does not exist.'); 
+            expect(_.bind(validator.getConstraintOrThrowError, validator, identifier)).to.throw('Constraint ' + identifier + ' does not exist.');
         });
     });
 
-    
-    
 
-    describe('#validateArray', function() {
+
+
+    describe('.validateArray', function() {
         it('with a directly given schema', function() {
             var validator = new ObjectValidator();
             var constraint = sinon.spy(constraints.dummy);
@@ -245,6 +245,6 @@ describe('ObjectValidator', function() {
 
     });
 
-    
+
 
 });
